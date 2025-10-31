@@ -5,53 +5,82 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Krushil Patel | Portfolio</title>
   <style>
-    body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    * {
       margin: 0;
       padding: 0;
-      background-color: #f8f9fb;
-      color: #222;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
     }
+    body {
+      font-family: "Segoe UI", sans-serif;
+      background-color: #f5f8ff;
+      color: #1e293b;
+    }
+
+    /* HEADER SECTION */
     header {
+      text-align: center;
       background: linear-gradient(135deg, #2563eb, #1e3a8a);
       color: white;
-      text-align: center;
-      padding: 60px 20px;
+      padding: 80px 20px 100px 20px;
+      position: relative;
+    }
+    header img {
+      width: 160px;
+      height: 160px;
+      border-radius: 50%;
+      border: 4px solid white;
+      object-fit: cover;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
     }
     header h1 {
       font-size: 2.5rem;
-      margin-bottom: 10px;
+      margin-top: 20px;
     }
     header p {
       font-size: 1.1rem;
-      opacity: 0.9;
+      opacity: 0.95;
     }
-    section {
-      max-width: 850px;
-      margin: 40px auto;
+    .btn-container {
+      margin-top: 25px;
+    }
+    .btn {
+      display: inline-block;
       background: white;
-      padding: 30px;
+      color: #1e3a8a;
+      font-weight: 600;
+      text-decoration: none;
+      padding: 10px 20px;
+      border-radius: 8px;
+      margin: 5px;
+      transition: all 0.3s ease;
+    }
+    .btn:hover {
+      background: #e0ebff;
+      transform: translateY(-2px);
+    }
+
+    /* SECTIONS */
+    section {
+      max-width: 900px;
+      margin: 50px auto;
+      background: white;
+      padding: 40px;
       border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      box-shadow: 0 5px 15px rgba(0,0,0,0.08);
     }
     h2 {
       color: #2563eb;
-      border-left: 4px solid #2563eb;
+      border-left: 5px solid #2563eb;
       padding-left: 10px;
+      margin-bottom: 20px;
     }
     ul {
       list-style: none;
-      padding-left: 0;
+      line-height: 1.8;
     }
-    li {
-      margin-bottom: 8px;
-    }
-    .links a {
-      text-decoration: none;
-      color: #2563eb;
-      font-weight: 600;
-      margin-right: 12px;
-    }
+
+    /* FOOTER */
     footer {
       text-align: center;
       padding: 20px;
@@ -59,20 +88,33 @@
       color: white;
       margin-top: 40px;
     }
+
+    /* RESPONSIVE */
+    @media (max-width: 600px) {
+      header h1 { font-size: 1.8rem; }
+      section { padding: 25px; margin: 20px; }
+    }
   </style>
 </head>
 <body>
+
   <header>
+    <img src="profile.jpg" alt="Krushil Patel" />
     <h1>👋 Hi, I'm Krushil Patel</h1>
-    <p>MAC Student @ University of Windsor | Aspiring Full-Stack Developer | Python | React | Node.js | AWS</p>
+    <p>MAC Student @ University of Windsor | Full-Stack Developer | Python | React | Node.js | AWS</p>
+    <div class="btn-container">
+      <a href="mailto:patel9zb@uwindsor.ca" class="btn">📧 Hire Me</a>
+      <a href="#" class="btn">📄 View Resume</a>
+    </div>
   </header>
 
   <section id="about">
     <h2>About Me</h2>
     <p>
       I'm a Master of Applied Computing student at the University of Windsor, passionate about building
-      efficient, scalable, and user-focused software systems. Currently seeking Co-op opportunities (Jan 2026)
-      to apply my skills in real-world projects.
+      efficient and scalable software systems. I enjoy working with modern technologies like Python, React, and
+      AWS. Currently seeking Co-op opportunities (January 2026) to apply my technical and problem-solving skills
+      in real-world projects.
     </p>
   </section>
 
@@ -98,22 +140,22 @@
   <section id="education">
     <h2>Education</h2>
     <ul>
-      <li><strong>University of Windsor</strong> – Master of Applied Computing (2025–2026)</li>
-      <li><strong>Gujarat Technological University</strong> – B.E. Computer Engineering (2020–2024)</li>
+      <li><strong>University of Windsor</strong> – Master of Applied Computing (2025-2026)</li>
+      <li><strong>Gujarat Technological University</strong> – B.E. Computer Engineering (2020-2024)</li>
     </ul>
   </section>
 
   <section id="contact">
     <h2>Contact</h2>
-    <div class="links">
-      <a href="mailto:patel9zb@uwindsor.ca">📧 Email</a>
-      <a href="https://www.linkedin.com/in/krushil-patel-109b31302" target="_blank">🔗 LinkedIn</a>
-      <a href="https://github.com/krushil2112" target="_blank">💻 GitHub</a>
-    </div>
+    <ul>
+      <li>📧 <a href="mailto:patel9zb@uwindsor.ca">patel9zb@uwindsor.ca</a></li>
+      <li>🔗 <a href="https://www.linkedin.com/in/krushil-patel-109b31302" target="_blank">LinkedIn</a></li>
+      <li>💻 <a href="https://github.com/krushil2112" target="_blank">GitHub</a></li>
+    </ul>
   </section>
 
   <footer>
-    © 2025 Krushil Patel | Built with ❤️ and HTML
+    © 2025 Krushil Patel | Built with 💙 and HTML
   </footer>
 </body>
 </html>
