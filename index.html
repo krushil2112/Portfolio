@@ -11,13 +11,15 @@
       box-sizing: border-box;
       scroll-behavior: smooth;
     }
+
     body {
       font-family: "Segoe UI", sans-serif;
       background-color: #f5f8ff;
       color: #1e293b;
+      overflow-x: hidden;
     }
 
-    /* HEADER SECTION */
+    /* HEADER */
     header {
       text-align: center;
       background: linear-gradient(135deg, #2563eb, #1e3a8a);
@@ -31,18 +33,22 @@
       border-radius: 50%;
       border: 4px solid white;
       object-fit: cover;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+      box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+      animation: fadeInDown 1s ease-in-out;
     }
     header h1 {
       font-size: 2.5rem;
       margin-top: 20px;
+      animation: fadeInUp 1s ease-in-out;
     }
     header p {
       font-size: 1.1rem;
       opacity: 0.95;
+      animation: fadeInUp 1.4s ease-in-out;
     }
     .btn-container {
       margin-top: 25px;
+      animation: fadeInUp 1.8s ease-in-out;
     }
     .btn {
       display: inline-block;
@@ -50,24 +56,34 @@
       color: #1e3a8a;
       font-weight: 600;
       text-decoration: none;
-      padding: 10px 20px;
+      padding: 10px 22px;
       border-radius: 8px;
       margin: 5px;
       transition: all 0.3s ease;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
     }
     .btn:hover {
-      background: #e0ebff;
-      transform: translateY(-2px);
+      background: #2563eb;
+      color: white;
+      box-shadow: 0 0 15px rgba(37,99,235,0.6);
+      transform: translateY(-3px);
     }
 
-    /* SECTIONS */
+    /* SECTION STYLE */
     section {
       max-width: 900px;
-      margin: 50px auto;
+      margin: 60px auto;
       background: white;
       padding: 40px;
       border-radius: 12px;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+      box-shadow: 0 6px 15px rgba(0,0,0,0.08);
+      opacity: 0;
+      transform: translateY(50px);
+      transition: all 0.8s ease-out;
+    }
+    section.visible {
+      opacity: 1;
+      transform: translateY(0);
     }
     h2 {
       color: #2563eb;
@@ -79,6 +95,13 @@
       list-style: none;
       line-height: 1.8;
     }
+    a {
+      color: #2563eb;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
 
     /* FOOTER */
     footer {
@@ -86,7 +109,17 @@
       padding: 20px;
       background: #1e3a8a;
       color: white;
-      margin-top: 40px;
+      margin-top: 60px;
+    }
+
+    /* ANIMATIONS */
+    @keyframes fadeInDown {
+      from { opacity: 0; transform: translateY(-30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
     }
 
     /* RESPONSIVE */
@@ -96,8 +129,8 @@
     }
   </style>
 </head>
-<body>
 
+<body>
   <header>
     <img src="profile.jpg" alt="Krushil Patel" />
     <h1>👋 Hi, I'm Krushil Patel</h1>
@@ -111,10 +144,9 @@
   <section id="about">
     <h2>About Me</h2>
     <p>
-      I'm a Master of Applied Computing student at the University of Windsor, passionate about building
-      efficient and scalable software systems. I enjoy working with modern technologies like Python, React, and
-      AWS. Currently seeking Co-op opportunities (January 2026) to apply my technical and problem-solving skills
-      in real-world projects.
+      I'm a Master of Applied Computing student at the University of Windsor, passionate about developing
+      efficient and scalable software solutions. I enjoy working with Python, React, and AWS. Currently seeking
+      Co-op opportunities (January 2026) to contribute to real-world projects and grow as a developer.
     </p>
   </section>
 
@@ -140,8 +172,8 @@
   <section id="education">
     <h2>Education</h2>
     <ul>
-      <li><strong>University of Windsor</strong> – Master of Applied Computing (2025-2026)</li>
-      <li><strong>Gujarat Technological University</strong> – B.E. Computer Engineering (2020-2024)</li>
+      <li><strong>University of Windsor</strong> – Master of Applied Computing (2025–2026)</li>
+      <li><strong>Gujarat Technological University</strong> – B.E. Computer Engineering (2020–2024)</li>
     </ul>
   </section>
 
@@ -157,5 +189,20 @@
   <footer>
     © 2025 Krushil Patel | Built with 💙 and HTML
   </footer>
+
+  <script>
+    // Fade-in sections on scroll
+    const sections = document.querySelectorAll("section");
+    const reveal = () => {
+      sections.forEach((section) => {
+        const top = section.getBoundingClientRect().top;
+        if (top < window.innerHeight - 100) {
+          section.classList.add("visible");
+        }
+      });
+    };
+    window.addEventListener("scroll", reveal);
+    window.addEventListener("load", reveal);
+  </script>
 </body>
 </html>
