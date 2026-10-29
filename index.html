@@ -226,7 +226,7 @@
                 I am currently seeking full-time Backend / Software Engineering opportunities. Reach out directly via email or LinkedIn!
             </p>
             <div class="flex flex-wrap justify-center items-center gap-4">
-                <a href="mailto:patel9zb@uwindsor.ca" class="bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-semibold px-8 py-3.5 rounded-lg transition text-sm">Send Email</a>
+                <button onclick="sendEmail()" class="bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-semibold px-8 py-3.5 rounded-lg transition text-sm cursor-pointer">Send Email</button>
                 <button onclick="copyEmail()" class="border border-slate-800 hover:border-slate-700 text-slate-300 px-8 py-3.5 rounded-lg transition text-sm font-mono">Copy Email Address</button>
             </div>
             <p id="copy-toast" class="text-xs text-cyan-400 font-mono mt-4 opacity-0 transition-opacity duration-300">Email copied to clipboard!</p>
@@ -350,11 +350,27 @@
         }
 
         // Copy Email
+        // Send Email Handler (opens client or automatically copies as backup)
+        function sendEmail() {
+            window.location.href = 'mailto:patel9zb@uwindsor.ca';
+            navigator.clipboard.writeText('patel9zb@uwindsor.ca');
+            const toast = document.getElementById('copy-toast');
+            if (toast) {
+                toast.innerText = "Email (patel9zb@uwindsor.ca) opened & copied to clipboard!";
+                toast.classList.remove('opacity-0');
+                setTimeout(() => toast.classList.add('opacity-0'), 3000);
+            }
+        }
+
+        // Copy Email Handler with Toast feedback
         function copyEmail() {
             navigator.clipboard.writeText('patel9zb@uwindsor.ca');
             const toast = document.getElementById('copy-toast');
-            toast.classList.remove('opacity-0');
-            setTimeout(() => toast.classList.add('opacity-0'), 2500);
+            if (toast) {
+                toast.innerText = "Email (patel9zb@uwindsor.ca) copied to clipboard!";
+                toast.classList.remove('opacity-0');
+                setTimeout(() => toast.classList.add('opacity-0'), 2500);
+            }
         }
     </script>
 </body>
