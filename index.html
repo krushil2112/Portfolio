@@ -1,210 +1,155 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Krushil Patel | Portfolio</title>
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      scroll-behavior: smooth;
-    }
-
-    body {
-      font-family: "Segoe UI", sans-serif;
-      background-color: #f5f8ff;
-      color: #1e293b;
-      overflow-x: hidden;
-    }
-
-    /* HEADER */
-    header {
-      text-align: center;
-      background: linear-gradient(135deg, #2563eb, #1e3a8a);
-      color: white;
-      padding: 80px 20px 100px 20px;
-      position: relative;
-    }
-    header img {
-      width: 160px;
-      height: 160px;
-      border-radius: 50%;
-      border: 4px solid white;
-      object-fit: cover;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-      animation: fadeInDown 1s ease-in-out;
-    }
-    header h1 {
-      font-size: 2.5rem;
-      margin-top: 20px;
-      animation: fadeInUp 1s ease-in-out;
-    }
-    header p {
-      font-size: 1.1rem;
-      opacity: 0.95;
-      animation: fadeInUp 1.4s ease-in-out;
-    }
-    .btn-container {
-      margin-top: 25px;
-      animation: fadeInUp 1.8s ease-in-out;
-    }
-    .btn {
-      display: inline-block;
-      background: white;
-      color: #1e3a8a;
-      font-weight: 600;
-      text-decoration: none;
-      padding: 10px 22px;
-      border-radius: 8px;
-      margin: 5px;
-      transition: all 0.3s ease;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-    }
-    .btn:hover {
-      background: #2563eb;
-      color: white;
-      box-shadow: 0 0 15px rgba(37,99,235,0.6);
-      transform: translateY(-3px);
-    }
-
-    /* SECTION STYLE */
-    section {
-      max-width: 900px;
-      margin: 60px auto;
-      background: white;
-      padding: 40px;
-      border-radius: 12px;
-      box-shadow: 0 6px 15px rgba(0,0,0,0.08);
-      opacity: 0;
-      transform: translateY(50px);
-      transition: all 0.8s ease-out;
-    }
-    section.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-    h2 {
-      color: #2563eb;
-      border-left: 5px solid #2563eb;
-      padding-left: 10px;
-      margin-bottom: 20px;
-    }
-    ul {
-      list-style: none;
-      line-height: 1.8;
-    }
-    a {
-      color: #2563eb;
-      text-decoration: none;
-    }
-    a:hover {
-      text-decoration: underline;
-    }
-
-    /* FOOTER */
-    footer {
-      text-align: center;
-      padding: 20px;
-      background: #1e3a8a;
-      color: white;
-      margin-top: 60px;
-    }
-
-    /* ANIMATIONS */
-    @keyframes fadeInDown {
-      from { opacity: 0; transform: translateY(-30px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-    @keyframes fadeInUp {
-      from { opacity: 0; transform: translateY(30px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    /* RESPONSIVE */
-    @media (max-width: 600px) {
-      header h1 { font-size: 1.8rem; }
-      section { padding: 25px; margin: 20px; }
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Krushil Patel | Backend Software Engineer</title>
+    <!-- Tailwind CSS CDN for clean, modern styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
+<body class="bg-slate-950 text-slate-100 font-sans antialiased selection:bg-cyan-500 selection:text-slate-950">
 
-<body>
-  <header>
-    <img src="profile.jpg" alt="Krushil Patel" />
-    <h1>👋 Hi, I'm Krushil Patel</h1>
-    <p>MAC Student @ University of Windsor | Full-Stack Developer | Python | React | Node.js | AWS</p>
-    <div class="btn-container">
-      <a href="mailto:patel9zb@uwindsor.ca" class="btn">📧 Hire Me</a>
-      <a href="Krushil_Patel_Resume.pdf" class="btn" download>📄 Download Resume</a>
-    </div>
-  </header>
+    <!-- Header / Navigation -->
+    <header class="sticky top-0 z-50 bg-slate-950/80 backdrop-blur-md border-b border-slate-800">
+        <div class="max-w-5xl mx-auto px-6 h-16 flex items-center justify-between">
+            <span class="font-bold text-lg tracking-tight text-cyan-400">Krushil Patel</span>
+            <nav class="hidden md:flex space-x-8 text-sm font-medium text-slate-300">
+                <a href="#about" class="hover:text-cyan-400 transition">About</a>
+                <a href="#skills" class="hover:text-cyan-400 transition">Tech Stack</a>
+                <a href="#projects" class="hover:text-cyan-400 transition">Projects</a>
+                <a href="#experience" class="hover:text-cyan-400 transition">Experience</a>
+                <a href="#contact" class="hover:text-cyan-400 transition">Contact</a>
+            </nav>
+        </div>
+    </header>
 
-  <section id="about">
-    <h2>About Me</h2>
-    <p>
-      I'm a Master of Applied Computing student at the University of Windsor, passionate about developing
-      efficient and scalable software solutions. I enjoy working with Python, React, and AWS. Currently seeking
-      Co-op opportunities (January 2026) to contribute to real-world projects and grow as a developer.
-    </p>
-  </section>
+    <!-- Hero Section -->
+    <section class="max-w-5xl mx-auto px-6 pt-24 pb-16 md:pt-32 md:pb-24">
+        <div class="space-y-4">
+            <p class="text-cyan-400 font-mono text-sm tracking-wide">Hi, my name is</p>
+            <h1 class="text-4xl md:text-6xl font-extrabold tracking-tight text-white">Krushil Patel.</h1>
+            <h2 class="text-2xl md:text-4xl font-bold text-slate-400">I build scalable backend systems & cloud APIs.</h2>
+            <p class="max-w-xl text-slate-400 text-base md:text-lg leading-relaxed pt-2">
+                Software Engineer and Master of Applied Computing graduate from the University of Windsor[cite: 1]. Specialized in Python (FastAPI, Flask), SQL databases, and containerized cloud deployments on Microsoft Azure.
+            </p>
+            <div class="pt-4 flex flex-wrap gap-4">
+                <a href="#projects" class="bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-semibold px-6 py-3 rounded-md transition">View Projects</a>
+                <a href="https://www.linkedin.com/in/krushil-patel-109b31302/" target="_blank" class="border border-slate-700 hover:border-cyan-400 text-slate-300 hover:text-cyan-400 font-semibold px-6 py-3 rounded-md transition">LinkedIn Profile</a>
+            </div>
+        </div>
+    </section>
 
-  <section id="skills">
-    <h2>Technical Skills</h2>
-    <ul>
-      <li>💻 Python, C, JavaScript, SQL</li>
-      <li>⚛️ React.js, Node.js, Express.js</li>
-      <li>☁️ AWS, Docker, Git, Linux</li>
-      <li>🧩 Data Structures, OOP, REST APIs</li>
-    </ul>
-  </section>
+    <!-- About Section -->
+    <section id="about" class="max-w-5xl mx-auto px-6 py-16 border-t border-slate-900">
+        <h2 class="text-2xl font-bold text-white mb-6 flex items-center gap-3"><span class="text-cyan-400 font-mono text-xl">01.</span> About Me</h2>
+        <div class="text-slate-300 space-y-4 leading-relaxed max-w-3xl">
+            <p>
+                I am a backend-focused Software Engineer who takes pride in writing secure, maintainable, and efficient code. With a Master's degree in Applied Computing from the University of Windsor[cite: 1] and hands-on software engineering internship experience, I bridge the gap between complex business logic and robust cloud infrastructure.
+            </p>
+            <p>
+                My technical philosophy centers on clean architecture, adhering to OWASP security principles, and leveraging tools like Docker and Azure to ensure seamless, scalable application deployments.
+            </p>
+        </div>
+    </section>
 
-  <section id="projects">
-    <h2>Projects</h2>
-    <ul>
-      <li><strong>Bug Tracker Pro</strong> – Flask web app for managing software bugs (Python)</li>
-      <li><strong>Distributed File System</strong> – Multi-server file sharing system built in C</li>
-      <li><strong>Artist Management CRM</strong> – Role-based management platform using React + Node.js</li>
-    </ul>
-  </section>
+    <!-- Tech Stack -->
+    <section id="skills" class="max-w-5xl mx-auto px-6 py-16 border-t border-slate-900">
+        <h2 class="text-2xl font-bold text-white mb-8 flex items-center gap-3"><span class="text-cyan-400 font-mono text-xl">02.</span> Technical Toolkit</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div class="bg-slate-900/50 border border-slate-800 p-6 rounded-lg">
+                <h3 class="font-semibold text-cyan-400 mb-3">Languages & Frameworks</h3>
+                <ul class="space-y-2 text-slate-300 text-sm">
+                    <li>• Python (FastAPI, Flask)</li>
+                    <li>• C, .NET</li>
+                    <li>• SQL / Database Design</li>
+                </ul>
+            </div>
+            <div class="bg-slate-900/50 border border-slate-800 p-6 rounded-lg">
+                <h3 class="font-semibold text-cyan-400 mb-3">Backend & Cloud</h3>
+                <ul class="space-y-2 text-slate-300 text-sm">
+                    <li>• RESTful APIs & Microservices</li>
+                    <li>• Microsoft Azure Cloud</li>
+                    <li>• Docker & Containerization</li>
+                </ul>
+            </div>
+            <div class="bg-slate-900/50 border border-slate-800 p-6 rounded-lg">
+                <h3 class="font-semibold text-cyan-400 mb-3">Tools & Practices</h3>
+                <ul class="space-y-2 text-slate-300 text-sm">
+                    <li>• Git & CI/CD Pipelines</li>
+                    <li>• Linux & Command Line</li>
+                    <li>• OWASP Secure Coding Principles</li>
+                </ul>
+            </div>
+        </div>
+    </section>
 
-  <section id="education">
-    <h2>Education</h2>
-    <ul>
-      <li><strong>University of Windsor</strong> – Master of Applied Computing (2025–2026)</li>
-      <li><strong>Gujarat Technological University</strong> – B.E. Computer Engineering (2020–2024)</li>
-    </ul>
-  </section>
+    <!-- Projects Section -->
+    <section id="projects" class="max-w-5xl mx-auto px-6 py-16 border-t border-slate-900">
+        <h2 class="text-2xl font-bold text-white mb-8 flex items-center gap-3"><span class="text-cyan-400 font-mono text-xl">03.</span> Featured Projects</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <!-- Project 1 -->
+            <div class="bg-slate-900/50 border border-slate-800 p-6 rounded-lg flex flex-col justify-between hover:border-cyan-500/50 transition">
+                <div>
+                    <h3 class="text-xl font-bold text-white mb-2">Vehicle Fleet Telemetry Dashboard</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed mb-4">
+                        Real-time backend service built with Python, FastAPI, and SQL to ingest and process vehicle diagnostics. Implemented containerization via Docker and cloud deployment on Microsoft Azure.
+                    </p>
+                </div>
+                <div class="flex flex-wrap gap-2 text-xs font-mono text-cyan-400 pt-4 border-t border-slate-800/80">
+                    <span>Python</span><span>FastAPI</span><span>Docker</span><span>Azure</span><span>SQL</span>
+                </div>
+            </div>
+            <!-- Project 2 -->
+            <div class="bg-slate-900/50 border border-slate-800 p-6 rounded-lg flex flex-col justify-between hover:border-cyan-500/50 transition">
+                <div>
+                    <h3 class="text-xl font-bold text-white mb-2">Corporate Expense Management API</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed mb-4">
+                        Secure Flask & SQL backend service designed for multi-tier corporate expense tracking. Features role-based workflows, JWT authentication, and automated integration testing following OWASP guidelines.
+                    </p>
+                </div>
+                <div class="flex flex-wrap gap-2 text-xs font-mono text-cyan-400 pt-4 border-t border-slate-800/80">
+                    <span>Python</span><span>Flask</span><span>JWT</span><span>SQL</span><span>OWASP</span>
+                </div>
+            </div>
+        </div>
+    </section>
 
-  <section id="contact">
-    <h2>Contact</h2>
-    <ul>
-      <li>📧 <a href="mailto:patel9zb@uwindsor.ca">patel9zb@uwindsor.ca</a></li>
-      <li>🔗 <a href="https://www.linkedin.com/in/krushil-patel-109b31302" target="_blank">LinkedIn</a></li>
-      <li>💻 <a href="https://github.com/krushil2112" target="_blank">GitHub</a></li>
-    </ul>
-  </section>
+    <!-- Experience Section -->
+    <section id="experience" class="max-w-5xl mx-auto px-6 py-16 border-t border-slate-900">
+        <h2 class="text-2xl font-bold text-white mb-8 flex items-center gap-3"><span class="text-cyan-400 font-mono text-xl">04.</span> Experience & Education</h2>
+        <div class="space-y-8 border-l border-slate-800 ml-2 pl-6">
+            <div>
+                <span class="text-xs font-mono text-cyan-400">Jan 2024 – Nov 2024</span>
+                <h3 class="text-lg font-bold text-white mt-1">Software Engineering Intern</h3>
+                <h4 class="text-slate-400 text-sm mb-2">H-Tech Ltd</h4>
+                <p class="text-slate-300 text-sm leading-relaxed">
+                    Contributed to full-stack feature development, optimized database queries, and collaborated with engineering teams to maintain secure, high-performance web components and backend services.
+                </p>
+            </div>
+            <div>
+                <span class="text-xs font-mono text-cyan-400">Jan 2025 – Apr 2026</span>
+                <h3 class="text-lg font-bold text-white mt-1">Master of Applied Computing</h3>
+                <h4 class="text-slate-400 text-sm mb-2">University of Windsor[cite: 1]</h4>
+                <p class="text-slate-300 text-sm leading-relaxed">
+                    Completed advanced coursework focusing on software architecture, cloud computing, and backend database systems.
+                </p>
+            </div>
+        </div>
+    </section>
 
-  <footer>
-    © 2025 Krushil Patel | Built with 💙 and HTML
-  </footer>
+    <!-- Contact Section -->
+    <section id="contact" class="max-w-5xl mx-auto px-6 py-20 border-t border-slate-950 text-center">
+        <h2 class="text-3xl font-bold text-white mb-4">Get In Touch</h2>
+        <p class="text-slate-400 max-w-md mx-auto mb-8 text-sm">
+            I am currently looking for full-time Software Engineering or Backend Developer roles. My inbox is always open if you'd like to discuss an opportunity!
+        </p>
+        <a href="mailto:patel9zb@uwindsor.ca" class="inline-block bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-semibold px-8 py-3 rounded-md transition">Say Hello</a>
+    </section>
 
-  <script>
-    // Fade-in sections on scroll
-    const sections = document.querySelectorAll("section");
-    const reveal = () => {
-      sections.forEach((section) => {
-        const top = section.getBoundingClientRect().top;
-        if (top < window.innerHeight - 100) {
-          section.classList.add("visible");
-        }
-      });
-    };
-    window.addEventListener("scroll", reveal);
-    window.addEventListener("load", reveal);
-  </script>
+    <!-- Footer -->
+    <footer class="max-w-5xl mx-auto px-6 py-8 border-t border-slate-900 text-center text-xs text-slate-500 font-mono">
+        Designed & Built by Krushil Patel
+    </footer>
+
 </body>
 </html>
-
-
