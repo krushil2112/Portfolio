@@ -22,10 +22,13 @@
         }
     </script>
 </head>
-<body class="bg-slate-950 text-slate-100 font-sans antialiased selection:bg-cyan-500 selection:text-slate-950">
+<body class="bg-slate-950 text-slate-100 font-sans antialiased selection:bg-cyan-500 selection:text-slate-950 relative overflow-x-hidden">
 
-    <!-- Sticky Navigation -->
-    <header class="sticky top-0 z-50 bg-slate-950/90 backdrop-blur-md border-b border-slate-800/80">
+    <!-- Interactive Background Canvas -->
+    <canvas id="node-canvas" class="fixed inset-0 pointer-events-none opacity-20 z-0"></canvas>
+
+    <!-- Navigation Header -->
+    <header class="sticky top-0 z-40 bg-slate-950/85 backdrop-blur-md border-b border-slate-800/80">
         <div class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
             <a href="#" class="font-mono font-bold text-lg text-cyan-400 hover:text-cyan-300 transition">&lt;KrushilPatel /&gt;</a>
             <nav class="hidden md:flex items-center space-x-8 text-sm font-medium text-slate-300">
@@ -39,10 +42,9 @@
         </div>
     </header>
 
-    <!-- Main Container -->
-    <main class="max-w-6xl mx-auto px-6">
+    <main class="relative z-10 max-w-6xl mx-auto px-6">
 
-        <!-- Hero Section with Profile Picture -->
+        <!-- Hero Section with Profile Photo -->
         <section class="pt-16 pb-20 md:pt-24 md:pb-28 border-b border-slate-900">
             <div class="flex flex-col-reverse md:flex-row items-center justify-between gap-12">
                 <!-- Text Content -->
@@ -62,7 +64,7 @@
                     </div>
                 </div>
 
-                <!-- Profile Picture Box -->
+                <!-- Profile Photo Box -->
                 <div class="shrink-0">
                     <div class="w-48 h-48 md:w-60 md:h-60 rounded-2xl overflow-hidden p-1 bg-gradient-to-tr from-cyan-500 via-slate-700 to-slate-900 shadow-2xl shadow-cyan-500/10">
                         <img src="profile.jpg" alt="Krushil Patel" class="w-full h-full object-cover rounded-xl bg-slate-900">
@@ -77,7 +79,7 @@
             <h3 class="text-2xl md:text-3xl font-bold text-white mb-6">Engineering Robust Cloud Architecture</h3>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8 text-slate-300 leading-relaxed text-sm md:text-base">
                 <p>
-                    I focus on building secure, efficient, and maintainable backend systems. Having completed my Master's degree in Applied Computing at the University of Windsor[cite: 1] alongside hands-on internship experience, I focus on bridging domain logic with high-performance cloud services.
+                    I focus on building secure, efficient, and maintainable backend systems. Having completed my Master's degree in Applied Computing at the University of Windsor[cite: 1] alongside hands-on internship experience, I bridge domain logic with high-performance cloud services.
                 </p>
                 <p>
                     My core technical focus includes designing RESTful API endpoints, establishing database schema patterns, enforcing OWASP security standards, and containerizing application workflows with Docker for reliable automated deployment on Microsoft Azure.
@@ -85,25 +87,33 @@
             </div>
         </section>
 
-        <!-- Technical Toolkit Section -->
+        <!-- Technical Toolkit with Dynamic Category Filter -->
         <section id="skills" class="py-20 border-b border-slate-900">
             <h2 class="text-xs font-mono text-cyan-400 uppercase tracking-widest mb-3">02 // Skills</h2>
-            <h3 class="text-2xl md:text-3xl font-bold text-white mb-10">Technical Toolkit</h3>
+            <div class="flex flex-col md:flex-row md:items-center justify-between mb-8 gap-4">
+                <h3 class="text-2xl md:text-3xl font-bold text-white">Technical Toolkit</h3>
+                <div class="flex flex-wrap gap-2 font-mono text-xs">
+                    <button onclick="filterSkills('all')" class="skill-btn active-skill bg-cyan-500/20 text-cyan-400 border border-cyan-500/30 px-3 py-1.5 rounded transition">All</button>
+                    <button onclick="filterSkills('lang')" class="skill-btn bg-slate-900 text-slate-400 border border-slate-800 px-3 py-1.5 rounded hover:text-white transition">Languages & Frameworks</button>
+                    <button onclick="filterSkills('cloud')" class="skill-btn bg-slate-900 text-slate-400 border border-slate-800 px-3 py-1.5 rounded hover:text-white transition">Backend & Cloud</button>
+                    <button onclick="filterSkills('sec')" class="skill-btn bg-slate-900 text-slate-400 border border-slate-800 px-3 py-1.5 rounded hover:text-white transition">Security & DevOps</button>
+                </div>
+            </div>
             
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
                 <!-- Stack Card 1 -->
-                <div class="bg-slate-900/40 border border-slate-800/80 p-6 rounded-xl hover:border-slate-700 transition">
+                <div class="skill-card lang bg-slate-900/40 border border-slate-800/80 p-6 rounded-xl hover:border-cyan-500/30 transition">
                     <div class="w-10 h-10 rounded-lg bg-cyan-500/10 flex items-center justify-center text-cyan-400 mb-4 font-mono font-bold text-sm">01</div>
                     <h4 class="text-lg font-bold text-white mb-3">Languages & Frameworks</h4>
                     <ul class="space-y-2 text-slate-400 text-sm font-mono">
                         <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-cyan-400"></span> Python (FastAPI, Flask)</li>
                         <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-cyan-400"></span> C & .NET</li>
-                        <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-cyan-400"></span> SQL (Relational Design)</li>
+                        <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-cyan-400"></span> SQL / Database Design</li>
                     </ul>
                 </div>
 
                 <!-- Stack Card 2 -->
-                <div class="bg-slate-900/40 border border-slate-800/80 p-6 rounded-xl hover:border-slate-700 transition">
+                <div class="skill-card cloud bg-slate-900/40 border border-slate-800/80 p-6 rounded-xl hover:border-cyan-500/30 transition">
                     <div class="w-10 h-10 rounded-lg bg-cyan-500/10 flex items-center justify-center text-cyan-400 mb-4 font-mono font-bold text-sm">02</div>
                     <h4 class="text-lg font-bold text-white mb-3">Backend & Infrastructure</h4>
                     <ul class="space-y-2 text-slate-400 text-sm font-mono">
@@ -114,9 +124,9 @@
                 </div>
 
                 <!-- Stack Card 3 -->
-                <div class="bg-slate-900/40 border border-slate-800/80 p-6 rounded-xl hover:border-slate-700 transition">
+                <div class="skill-card sec bg-slate-900/40 border border-slate-800/80 p-6 rounded-xl hover:border-cyan-500/30 transition">
                     <div class="w-10 h-10 rounded-lg bg-cyan-500/10 flex items-center justify-center text-cyan-400 mb-4 font-mono font-bold text-sm">03</div>
-                    <h4 class="text-lg font-bold text-white mb-3">Security & Practices</h4>
+                    <h4 class="text-lg font-bold text-white mb-3">Security & DevOps</h4>
                     <ul class="space-y-2 text-slate-400 text-sm font-mono">
                         <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-cyan-400"></span> OWASP Secure Coding</li>
                         <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-cyan-400"></span> JWT & Authentication</li>
@@ -126,7 +136,7 @@
             </div>
         </section>
 
-        <!-- Projects Section -->
+        <!-- Featured Projects Section with Interactive Modals -->
         <section id="projects" class="py-20 border-b border-slate-900">
             <h2 class="text-xs font-mono text-cyan-400 uppercase tracking-widest mb-3">03 // Work</h2>
             <h3 class="text-2xl md:text-3xl font-bold text-white mb-10">Featured Projects</h3>
@@ -137,6 +147,7 @@
                     <div>
                         <div class="flex items-center justify-between mb-4">
                             <span class="text-xs font-mono text-cyan-400">FastAPI / Cloud</span>
+                            <button onclick="openModal('telemetry')" class="text-xs font-mono text-slate-400 group-hover:text-cyan-400 flex items-center gap-1 transition">Inspect Spec &rarr;</button>
                         </div>
                         <h4 class="text-xl font-bold text-white mb-3 group-hover:text-cyan-400 transition">Vehicle Fleet Telemetry Dashboard</h4>
                         <p class="text-slate-400 text-sm leading-relaxed mb-6">
@@ -156,6 +167,7 @@
                     <div>
                         <div class="flex items-center justify-between mb-4">
                             <span class="text-xs font-mono text-cyan-400">Flask / Security</span>
+                            <button onclick="openModal('expense')" class="text-xs font-mono text-slate-400 group-hover:text-cyan-400 flex items-center gap-1 transition">Inspect Spec &rarr;</button>
                         </div>
                         <h4 class="text-xl font-bold text-white mb-3 group-hover:text-cyan-400 transition">Corporate Expense Management API</h4>
                         <p class="text-slate-400 text-sm leading-relaxed mb-6">
@@ -206,7 +218,7 @@
             </div>
         </section>
 
-        <!-- Contact Section -->
+        <!-- Contact Section with Instant Email Copy Button -->
         <section id="contact" class="py-24 text-center">
             <h2 class="text-xs font-mono text-cyan-400 uppercase tracking-widest mb-3">05 // Contact</h2>
             <h3 class="text-3xl md:text-4xl font-extrabold text-white mb-4">Let's Connect</h3>
@@ -215,16 +227,135 @@
             </p>
             <div class="flex flex-wrap justify-center items-center gap-4">
                 <a href="mailto:patel9zb@uwindsor.ca" class="bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-semibold px-8 py-3.5 rounded-lg transition text-sm">Send Email</a>
-                <a href="https://www.linkedin.com/in/krushil-patel-109b31302/" target="_blank" class="border border-slate-800 hover:border-slate-700 text-slate-300 px-8 py-3.5 rounded-lg transition text-sm">LinkedIn</a>
+                <button onclick="copyEmail()" class="border border-slate-800 hover:border-slate-700 text-slate-300 px-8 py-3.5 rounded-lg transition text-sm font-mono">Copy Email Address</button>
             </div>
+            <p id="copy-toast" class="text-xs text-cyan-400 font-mono mt-4 opacity-0 transition-opacity duration-300">Email copied to clipboard!</p>
         </section>
 
     </main>
 
+    <!-- Project Architecture Modal -->
+    <div id="project-modal" class="fixed inset-0 bg-slate-950/80 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden">
+        <div class="bg-slate-900 border border-slate-800 rounded-2xl max-w-2xl w-full p-6 md:p-8 shadow-2xl relative">
+            <button onclick="closeModal()" class="absolute top-4 right-4 text-slate-400 hover:text-white font-mono text-lg">&times;</button>
+            <div id="modal-content"></div>
+        </div>
+    </div>
+
     <!-- Footer -->
-    <footer class="border-t border-slate-900 py-8 text-center text-xs text-slate-500 font-mono">
+    <footer class="border-t border-slate-900 py-8 text-center text-xs text-slate-500 font-mono relative z-10">
         Designed & Built by Krushil Patel
     </footer>
 
+    <!-- Interactive Scripts -->
+    <script>
+        // Particle Canvas Animation
+        const canvas = document.getElementById('node-canvas');
+        const ctx = canvas.getContext('2d');
+        let width = canvas.width = window.innerWidth;
+        let height = canvas.height = window.innerHeight;
+
+        window.addEventListener('resize', () => {
+            width = canvas.width = window.innerWidth;
+            height = canvas.height = window.innerHeight;
+        });
+
+        const nodes = Array.from({ length: 40 }, () => ({
+            x: Math.random() * width,
+            y: Math.random() * height,
+            vx: (Math.random() - 0.5) * 0.5,
+            vy: (Math.random() - 0.5) * 0.5,
+        }));
+
+        function drawNodes() {
+            ctx.clearRect(0, 0, width, height);
+            ctx.fillStyle = '#06b6d4';
+            ctx.strokeStyle = '#1e293b';
+
+            nodes.forEach((node, i) => {
+                node.x += node.vx;
+                node.y += node.vy;
+
+                if (node.x < 0 || node.x > width) node.vx *= -1;
+                if (node.y < 0 || node.y > height) node.vy *= -1;
+
+                ctx.beginPath();
+                ctx.arc(node.x, node.y, 2, 0, Math.PI * 2);
+                ctx.fill();
+
+                for (let j = i + 1; j < nodes.length; j++) {
+                    const dx = nodes[j].x - node.x;
+                    const dy = nodes[j].y - node.y;
+                    const dist = Math.sqrt(dx * dx + dy * dy);
+                    if (dist < 120) {
+                        ctx.beginPath();
+                        ctx.moveTo(node.x, node.y);
+                        ctx.lineTo(nodes[j].x, nodes[j].y);
+                        ctx.stroke();
+                    }
+                }
+            });
+            requestAnimationFrame(drawNodes);
+        }
+        drawNodes();
+
+        // Skill Category Filter
+        function filterSkills(category) {
+            const cards = document.querySelectorAll('.skill-card');
+            const btns = document.querySelectorAll('.skill-btn');
+            
+            btns.forEach(btn => btn.classList.remove('active-skill', 'bg-cyan-500/20', 'text-cyan-400', 'border-cyan-500/30'));
+            event.target.classList.add('active-skill', 'bg-cyan-500/20', 'text-cyan-400', 'border-cyan-500/30');
+
+            cards.forEach(card => {
+                if (category === 'all' || card.classList.contains(category)) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        // Project Architecture Modals
+        function openModal(project) {
+            const modal = document.getElementById('project-modal');
+            const content = document.getElementById('modal-content');
+
+            if (project === 'telemetry') {
+                content.innerHTML = `
+                    <span class="text-xs font-mono text-cyan-400 uppercase tracking-widest">System Architecture Spec</span>
+                    <h3 class="text-2xl font-bold text-white mt-1 mb-4">Vehicle Fleet Telemetry Dashboard</h3>
+                    <div class="space-y-4 text-sm text-slate-300">
+                        <p><strong class="text-white">API Layer:</strong> Built high-throughput ingestion endpoints using FastAPI and Pydantic schema validation.</p>
+                        <p><strong class="text-white">Database Design:</strong> Relational schema with indexed timestamps and vehicle ID keys for fast analytical lookup.</p>
+                        <p><strong class="text-white">Deployment:</strong> Containerized via Docker multi-stage builds and hosted on Azure Web App for Containers.</p>
+                    </div>
+                `;
+            } else if (project === 'expense') {
+                content.innerHTML = `
+                    <span class="text-xs font-mono text-cyan-400 uppercase tracking-widest">Security & API Spec</span>
+                    <h3 class="text-2xl font-bold text-white mt-1 mb-4">Corporate Expense Management API</h3>
+                    <div class="space-y-4 text-sm text-slate-300">
+                        <p><strong class="text-white">Auth Flow:</strong> Secure JWT token generation with role-based permission access control (RBAC).</p>
+                        <p><strong class="text-white">Security Controls:</strong> SQL injection mitigation via parameterized ORM queries, sanitized input validation following OWASP guidelines.</p>
+                        <p><strong class="text-white">Integration Tests:</strong> Automated test suites evaluating multi-tier approval states and payload validation.</p>
+                    </div>
+                `;
+            }
+            modal.classList.remove('hidden');
+        }
+
+        function closeModal() {
+            document.getElementById('project-modal').classList.add('hidden');
+        }
+
+        // Copy Email
+        function copyEmail() {
+            navigator.clipboard.writeText('patel9zb@uwindsor.ca');
+            const toast = document.getElementById('copy-toast');
+            toast.classList.remove('opacity-0');
+            setTimeout(() => toast.classList.add('opacity-0'), 2500);
+        }
+    </script>
 </body>
 </html>
